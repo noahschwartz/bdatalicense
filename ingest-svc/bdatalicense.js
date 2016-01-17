@@ -14,6 +14,9 @@ async.waterfall(
       var server = new hapi.Server();
       server.connection({ port: config.server.publicPort });
 
+      require('./lib/routes/security').setupPublicRoutes(server);
+      require('./lib/routes/ping').setupPublicRoutes(server);
+
       var hapiLoggerConfig = 
       {
         register: require('hapi-bunyan'),
@@ -58,6 +61,8 @@ async.waterfall(
     {
       var server = new hapi.Server();
       server.connection({ port: config.server.privatePort });
+
+      require('./lib/routes/security').setupPrivateRoutes(server);
 
       var hapiLoggerConfig = 
       {
