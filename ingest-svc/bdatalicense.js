@@ -7,6 +7,8 @@ var config = require('./etc/config');
 var loggerPublic = bunyan.createLogger({ name: "bdatalicense-public", level: "info", src: true });
 var loggerPrivate = bunyan.createLogger({ name: "bdatalicense-private", level: "info", src: true });
 
+var statsd = require ('./lib/api/statsd');
+
 async.waterfall(
   [
     function createPublicServer (waterfallCallback)
@@ -32,7 +34,12 @@ async.waterfall(
 
       server.ext('onPostHandler', function (request, reply)
       {
-        request.log.info({ id: request.id, tookMs: new Date() - request.info.received }, '%s %s finished', request.method.toUpperCase(), request.path);
+        var time = new Date() - request.info.received;
+
+        statsd.timing('requests.all', time);
+        statsd.timing('requests.' + request.path, time);
+
+        request.log.info({ id: request.id, tookMs: time }, '%s %s finished', request.method.toUpperCase(), request.path);
 
         reply.continue();
       });
