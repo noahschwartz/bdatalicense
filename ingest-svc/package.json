@@ -22,6 +22,7 @@
     "mathjs": "*",
     "mocha": "*",
     "moment": "*",
+    "node-statsd": "*",
     "numeral": "*",
     "request": "*",
     "unit.js": "*"
