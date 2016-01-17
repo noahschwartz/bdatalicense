@@ -1,3 +1,4 @@
 {
-  "server": { "host": "www.bdatalicense.com", "basePath": "", "publicPort": 8080, "privatePort": 8081 }
+  "server": { "host": "www.bdatalicense.com", "basePath": "", "publicPort": 8080, "privatePort": 8081 },
+  "statsd": { "host": "graphite.bdatalicense.com", "port": 8125 }
 }
