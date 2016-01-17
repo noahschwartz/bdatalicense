@@ -1,0 +1,3 @@
+{
+  "server": { "host": "www.bdatalicense.com", "basePath": "", "publicPort": 8080, "privatePort": 8081 }
+}

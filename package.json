@@ -1,0 +1,33 @@
+{
+  "name": "bdatalicense",
+  "version": "0.0.1",
+  "author": "Noah Schwartz <noah.schwartz1@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noahschwartz/bdatalicense"
+  },
+  "dependencies": {
+    "async": "*",
+    "bunyan": "1.5.1",
+    "chai": "*",
+    "cheerio": "*",
+    "commander": "*",
+    "csv": "0.3.6",
+    "hapi": "10.0.1",
+    "hapi-bunyan": "0.6.0",
+    "joi": "6.7.1",
+    "jshint": "*",
+    "ioredis": "1.9.0",
+    "lodash": "*",
+    "mathjs": "*",
+    "mocha": "*",
+    "moment": "*",
+    "numeral": "*",
+    "request": "*",
+    "unit.js": "*"
+  },
+  "scripts":
+  {
+    "test": "mocha test -t 300000"
+  }
+}
