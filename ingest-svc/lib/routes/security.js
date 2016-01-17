@@ -7,7 +7,7 @@ var my =
   SCHEMA_GET_FIELD_FOR_SECURITY: joi.object().keys(
     {//{{{
       id135: joi.string().required(),
-      fieldName: joi.string().required()
+      field: joi.string().required()
     }//}}}
   ),
 
@@ -28,7 +28,7 @@ var exports =
     server.route(
       {
         method: 'GET',
-        path: '/security/{id135}/field/{fieldName}',
+        path: '/securities/{id135}/fields/{field}',
         handler: my.fieldForSecurity,
         config: { validate: { params: my.SCHEMA_GET_FIELD_FOR_SECURITY } }
       }
