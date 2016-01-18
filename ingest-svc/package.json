@@ -18,7 +18,7 @@
     "joi": "6.7.1",
     "jshint": "*",
     "ioredis": "1.9.0",
-    "lodash": "*",
+    "lodash": "3.10.1",
     "mathjs": "*",
     "mocha": "*",
     "moment": "*",
