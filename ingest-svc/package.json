@@ -17,6 +17,7 @@
     "hapi-bunyan": "0.6.0",
     "joi": "6.7.1",
     "jshint": "*",
+    "kafka-node": "*",
     "ioredis": "1.9.0",
     "lodash": "3.10.1",
     "mathjs": "*",
