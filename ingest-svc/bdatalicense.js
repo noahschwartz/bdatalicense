@@ -4,6 +4,7 @@ var bunyan = require('bunyan');
 var hapi = require('hapi');
 
 var config = require('./etc/config');
+var database = require('./lib/api/database');
 var loggerPublic = bunyan.createLogger({ name: "bdatalicense-public", level: "info", src: true });
 var loggerPrivate = bunyan.createLogger({ name: "bdatalicense-private", level: "info", src: true });
 
@@ -70,6 +71,8 @@ async.waterfall(
       server.connection({ port: config.server.privatePort });
 
       require('./lib/routes/securities').setupPrivateRoutes(server);
+
+      database.startPumping(loggerPrivate);
 
       var hapiLoggerConfig = 
       {

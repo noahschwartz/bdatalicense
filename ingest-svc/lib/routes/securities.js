@@ -2,6 +2,8 @@ var _ = require('lodash');
 var async = require('async');
 var joi = require('joi');
 
+var database = require('../api/database');
+
 var my =
 {
   SCHEMA_GET_FIELD_FOR_SECURITY: joi.object().keys(
@@ -13,7 +15,18 @@ var my =
 
   fieldForSecurity: function (request, reply)
   {//{{{
-    reply(200);
+    var id135 = request.query.id135;
+    var field = request.query.field;
+
+    database.callCalcrt(id135, [ field ], function (error, values)
+    {
+      if (error)
+      {
+        return reply(error);
+      }
+
+      reply({ id135: id135, field: field, value: values[field] });
+    });
   }//}}}
 };
 
